@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <h1>Personas</h1>
-  <FormularioPersona/>
+  <FormularioPersona @add-persona="agregarPersona" />
   <TablaPersonas :personas="personas" />
 </template>
 
@@ -14,7 +14,7 @@ export default {
   components: {
     TablaPersonas,
     FormularioPersona
-},
+  },
   data() {
     return {
       personas: [
@@ -37,6 +37,15 @@ export default {
           email: 'daenerys@email.com',
         },
       ],
+    }
+  },
+  methods: {
+    agregarPersona(persona) {
+      let id = 0;
+      if (this.personas.length > 0) {
+        id = this.personas[this.personas.length - 1].id + 1;
+      }
+      this.personas = [...this.personas, { ...persona, id}];
     }
   }
 }

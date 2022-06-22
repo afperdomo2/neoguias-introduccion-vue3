@@ -48,7 +48,10 @@
     },
     methods: {
         enviarFormulario() {
-            console.log('Funciona!');
+            this.$emit('add-persona', this.persona);
+            this.persona.nombre = '';
+            this.persona.apellido = '';
+            this.persona.email = '';
         },
     },
   }
