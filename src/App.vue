@@ -1,17 +1,20 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <h1>Personas</h1>
+  <FormularioPersona/>
   <TablaPersonas :personas="personas" />
 </template>
 
 <script>
 import TablaPersonas from '@/components/TablaPersonas.vue'
+import FormularioPersona from './components/FormularioPersona.vue'
 
 export default {
   name: 'App',
   components: {
-    TablaPersonas
-  },
+    TablaPersonas,
+    FormularioPersona
+},
   data() {
     return {
       personas: [
