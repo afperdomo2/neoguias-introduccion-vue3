@@ -1,7 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <h1>Personas</h1>
-  <TablaPersonas/>
+  <TablaPersonas :personas="personas" />
 </template>
 
 <script>
@@ -11,6 +11,30 @@ export default {
   name: 'App',
   components: {
     TablaPersonas
+  },
+  data() {
+    return {
+      personas: [
+        {
+          id: 1,
+          nombre: 'Jon',
+          apellido: 'Nieve',
+          email: 'jon@email.com',
+        },
+        {
+          id: 2,
+          nombre: 'Tyrion',
+          apellido: 'Lannister',
+          email: 'tyrion@email.com',
+        },
+        {
+          id: 3,
+          nombre: 'Daenerys',
+          apellido: 'Targaryen',
+          email: 'daenerys@email.com',
+        },
+      ],
+    }
   }
 }
 </script>
