@@ -20,6 +20,11 @@
               </button>
           </td>
         </tr>
+        <tr v-if="!personas.length">
+          <td class="bg-info" role="alert" colspan="4">
+            No se han agregado personas
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
