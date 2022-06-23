@@ -9,11 +9,13 @@
                         <div class="form-group">
                             <label>Nombre</label>
                             <input
+                                ref="nombre"
                                 v-model="persona.nombre"
                                 type="text"
                                 class="form-control"
                                 :class="{ 'is-invalid': procesando && nombreInvalido }"
                                 @focus="resetEstado"
+                                @keypress="resetEstado"
                             />
                             <!--
                                 @focus="resetEstado"
@@ -104,6 +106,7 @@
             }
 
             this.$emit('add-persona', this.persona);
+            this.$refs.nombre.focus();
             this.error = false;
             this.correcto = true;
             this.procesando = false;
