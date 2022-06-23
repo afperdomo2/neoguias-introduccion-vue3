@@ -5,6 +5,7 @@
   <TablaPersonas
     :personas="personas"
     @delete-persona="eliminarPersona"
+    @update-persona="actualizarPersona"
   />
 </template>
 
@@ -54,6 +55,11 @@ export default {
       this.personas = this.personas.filter(
         persona => persona.id !== id
       );
+    },
+    actualizarPersona(id, personaActualizada) {
+      this.personas = this.personas.map(persona =>
+        persona.id === id ? personaActualizada : persona
+      )
     }
   }
 }
