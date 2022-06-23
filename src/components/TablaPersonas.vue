@@ -6,6 +6,7 @@
           <th>Nombre</th>
           <th>Apellido</th>
           <th>Email</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -13,6 +14,11 @@
           <td>{{ persona.nombre}}</td>
           <td>{{ persona.apellido }}</td>
           <td>{{ persona.email}}</td>
+          <td>
+              <button class="btn btn-danger" @click="$emit('delete-persona', persona.id)">
+                🗑️ Eliminar
+              </button>
+          </td>
         </tr>
       </tbody>
     </table>

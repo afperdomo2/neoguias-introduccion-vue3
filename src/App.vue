@@ -2,7 +2,10 @@
   <img alt="Vue logo" src="./assets/logo.png">
   <h1>Personas</h1>
   <FormularioPersona @add-persona="agregarPersona" />
-  <TablaPersonas :personas="personas" />
+  <TablaPersonas
+    :personas="personas"
+    @delete-persona="eliminarPersona"
+  />
 </template>
 
 <script>
@@ -46,6 +49,11 @@ export default {
         id = this.personas[this.personas.length - 1].id + 1;
       }
       this.personas = [...this.personas, { ...persona, id}];
+    },
+    eliminarPersona(id) {
+      this.personas = this.personas.filter(
+        persona => persona.id !== id
+      );
     }
   }
 }
